@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nigerian-trading-terminal/static/css/main.994225f3.css",
+    "main.js": "/nigerian-trading-terminal/static/js/main.1d4f17d1.js",
+    "index.html": "/nigerian-trading-terminal/index.html",
+    "main.994225f3.css.map": "/nigerian-trading-terminal/static/css/main.994225f3.css.map",
+    "main.1d4f17d1.js.map": "/nigerian-trading-terminal/static/js/main.1d4f17d1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.994225f3.css",
+    "static/js/main.1d4f17d1.js"
+  ]
+}
