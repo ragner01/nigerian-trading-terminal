@@ -14,10 +14,12 @@ export const useMarketData = () => {
 
   const updateMarketData = useCallback((data) => {
     try {
-      setMarketData(data);
+      // Ensure data is an array and filter out any undefined items
+      const validData = Array.isArray(data) ? data.filter(item => item && item.symbol) : [];
+      setMarketData(validData);
       
       // Update watchlist with top 8 stocks by volume
-      const topStocks = data
+      const topStocks = validData
         .sort((a, b) => b.volume - a.volume)
         .slice(0, 8)
         .map(stock => stock.symbol);
@@ -36,20 +38,20 @@ export const useMarketData = () => {
   const handlePriceUpdate = useCallback((update) => {
     setMarketData(prevData => {
       const updatedData = prevData.map(stock => 
-        stock.symbol === update.symbol ? update.data : stock
+        stock && stock.symbol === update.symbol ? { ...stock, ...update } : stock
       );
-      return updatedData;
+      return updatedData.filter(stock => stock && stock.symbol);
     });
   }, []);
 
   const handleVolumeUpdate = useCallback((update) => {
     setMarketData(prevData => {
       const updatedData = prevData.map(stock => 
-        stock.symbol === update.symbol 
+        stock && stock.symbol === update.symbol 
           ? { ...stock, volume: update.volume }
           : stock
       );
-      return updatedData;
+      return updatedData.filter(stock => stock && stock.symbol);
     });
   }, []);
 
@@ -74,7 +76,9 @@ export const useMarketData = () => {
     });
 
     realTimeDataService.on('marketData', (data) => {
-      updateMarketData(data.data);
+      // Handle both direct data and nested data structure
+      const marketData = data.data || data;
+      updateMarketData(marketData);
     });
 
     realTimeDataService.on('priceUpdate', handlePriceUpdate);
