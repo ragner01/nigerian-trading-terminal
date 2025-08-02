@@ -10,6 +10,7 @@ import AnalyticsPanel from './components/AnalyticsPanel';
 import AlertsPanel from './components/AlertsPanel';
 import PortfolioPanel from './components/PortfolioPanel';
 import StatusBar from './components/StatusBar';
+import MobileDebug from './components/MobileDebug';
 import { useMarketData } from './hooks/useMarketData';
 import { useTradingData } from './hooks/useTradingData';
 import { lightTheme, darkTheme } from './theme';
@@ -19,6 +20,13 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   background: ${({ theme }) => theme.background};
+  width: 100%;
+  overflow-x: hidden;
+  
+  @media (max-width: 768px) {
+    min-height: 100vh;
+    width: 100vw;
+  }
 `;
 
 const MainContent = styled.main`
@@ -107,6 +115,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <AppContainer>
+        <MobileDebug />
         <Header onNavigate={handleNavigation} currentView={currentView} onThemeToggle={handleThemeToggle} themeMode={theme} />
       
         <MainContent>
