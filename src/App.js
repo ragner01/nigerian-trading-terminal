@@ -33,8 +33,9 @@ const MainContent = styled.main`
   }
   
   @media (max-width: 768px) {
-    padding: 10px;
-    gap: 10px;
+    padding: 8px;
+    gap: 8px;
+    min-height: calc(100vh - 200px);
   }
 `;
 
@@ -44,6 +45,10 @@ const LeftPanel = styled(motion.aside)`
   @media (max-width: 1200px) {
     width: 100%;
   }
+  
+  @media (max-width: 768px) {
+    order: 2;
+  }
 `;
 
 const CenterPanel = styled(motion.section)`
@@ -52,6 +57,12 @@ const CenterPanel = styled(motion.section)`
   flex-direction: column;
   gap: 15px;
   min-height: 600px;
+  
+  @media (max-width: 768px) {
+    order: 1;
+    gap: 8px;
+    min-height: 400px;
+  }
 `;
 
 const RightPanel = styled(motion.aside)`
@@ -59,6 +70,10 @@ const RightPanel = styled(motion.aside)`
   
   @media (max-width: 1200px) {
     width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    order: 3;
   }
 `;
 

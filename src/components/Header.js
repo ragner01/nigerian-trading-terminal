@@ -14,6 +14,12 @@ const HeaderContainer = styled(motion.header)`
   position: sticky;
   top: 0;
   z-index: 1000;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
 `;
 
 const LogoSection = styled.div`
@@ -29,6 +35,10 @@ const LogoText = styled.h1`
   text-shadow: 0 0 20px rgba(0, 212, 170, 0.6);
   letter-spacing: 2px;
   margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const TerminalText = styled.h2`
@@ -37,6 +47,10 @@ const TerminalText = styled.h2`
   color: #ffffff;
   letter-spacing: 1px;
   margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const ToolbarControls = styled.nav`
@@ -46,6 +60,8 @@ const ToolbarControls = styled.nav`
   @media (max-width: 768px) {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 8px;
+    width: 100%;
   }
 `;
 
@@ -71,6 +87,15 @@ const ToolbarButton = styled(motion.button)`
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 8px 12px;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+  }
 `;
 
 const ThemeToggle = styled(motion.button)`
@@ -90,18 +115,34 @@ const ThemeToggle = styled(motion.button)`
     background: ${({ theme }) => theme.accentGradient};
     color: #1a1a1a;
   }
+  
+  @media (max-width: 768px) {
+    margin-left: 0;
+    font-size: 16px;
+    padding: 6px 10px;
+  }
 `;
 
 const UserSection = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
+  
+  @media (max-width: 768px) {
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
 `;
 
 const UserText = styled.span`
   font-size: 14px;
   color: #cccccc;
   font-weight: 500;
+  
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const CloseButton = styled(motion.button)`
