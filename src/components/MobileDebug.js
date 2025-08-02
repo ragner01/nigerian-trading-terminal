@@ -33,6 +33,9 @@ const MobileDebug = () => {
       <div>Android: {isAndroid ? 'Yes' : 'No'}</div>
       <div>Width: {window.innerWidth}px</div>
       <div>Height: {window.innerHeight}px</div>
+      <div style={{ marginTop: '5px', fontSize: '10px', color: '#ff6b6b' }}>
+        {!isMobile ? '💡 Use F12 → Mobile view to test' : '📱 Mobile detected!'}
+      </div>
     </DebugContainer>
   );
 };
