@@ -2,7 +2,7 @@
   "name": "nigerian-trading-terminal",
   "version": "1.0.0",
   "description": "Modern Nigerian Trading Terminal built with React",
-  "homepage": "https://ragner01.github.io/nigerian-trading-terminal",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

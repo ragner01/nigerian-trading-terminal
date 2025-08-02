@@ -68,21 +68,10 @@ function App() {
   const [currentView, setCurrentView] = useState('market');
   const [theme, setTheme] = useState('dark');
 
-  const { marketData, watchlist, updateMarketData } = useMarketData();
+  const { marketData, watchlist, loading, error } = useMarketData();
   const { positions, balance, placeOrder } = useTradingData();
 
-  // Real-time updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      try {
-        updateMarketData();
-      } catch (error) {
-        console.error('Error updating market data:', error);
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [updateMarketData]);
+  // Real-time updates are handled automatically by the useMarketData hook
 
   const handleSymbolSelect = (symbol) => {
     setCurrentSymbol(symbol);
