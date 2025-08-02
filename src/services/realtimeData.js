@@ -328,4 +328,5 @@ class RealTimeDataService {
 }
 
 // Export singleton instance
-export const realTimeDataService = new RealTimeDataService(); 
+const realTimeDataService = new RealTimeDataService();
+export default realTimeDataService; 
