@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
@@ -68,7 +68,7 @@ function App() {
   const [currentView, setCurrentView] = useState('market');
   const [theme, setTheme] = useState('dark');
 
-  const { marketData, watchlist, loading, error } = useMarketData();
+  const { marketData, watchlist } = useMarketData();
   const { positions, balance, placeOrder } = useTradingData();
 
   // Real-time updates are handled automatically by the useMarketData hook
