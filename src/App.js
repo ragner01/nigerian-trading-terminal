@@ -10,7 +10,6 @@ import AnalyticsPanel from './components/AnalyticsPanel';
 import AlertsPanel from './components/AlertsPanel';
 import PortfolioPanel from './components/PortfolioPanel';
 import StatusBar from './components/StatusBar';
-import MobileDebug from './components/MobileDebug';
 import { useMarketData } from './hooks/useMarketData';
 import { useTradingData } from './hooks/useTradingData';
 import { lightTheme, darkTheme } from './theme';
@@ -115,7 +114,6 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <AppContainer>
-        <MobileDebug />
         <Header onNavigate={handleNavigation} currentView={currentView} onThemeToggle={handleThemeToggle} themeMode={theme} />
       
         <MainContent>
